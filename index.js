@@ -26,9 +26,10 @@ mongoose
 .then(()=>{console.log("Database connected")})
 .catch((error)=>{console.log(error);})
 
+const PORT=process.env.PORT || 5000;
 
-const server=app.listen(process.env.PORT,()=>{
-    console.log(`Server running on Port ${process.env.PORT}`);
+const server=app.listen(PORT,()=>{
+    console.log(`Server running on Port ${PORT}`);
 
     const io = socket(server, {
       cors: {
