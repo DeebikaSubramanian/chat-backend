@@ -10,16 +10,18 @@ require("dotenv").config();
 app.use(cors());
 app.use(express.json());
 
-// app.get('/',(req,res)=>{
-//   res.send("App is Running");
-// })
+app.get('/',(req,res)=>{
+  res.send("App is Running");
+})
+
+MONGO_URL="mongodb+srv://Deebika:Karthish_06@cluster0.pfqdk.mongodb.net/?retryWrites=true&w=majority"
 
 app.use("/api/auth", UserRoutes);
 app.use("/api/messages",messageRoute)
 
 
 mongoose
-  .connect(process.env.MONGO_URL, {
+  .connect(MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
